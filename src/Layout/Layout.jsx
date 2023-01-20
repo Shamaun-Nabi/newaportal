@@ -15,10 +15,10 @@ function Layout() {
             <div className="col-span-3">
               <LeftSideNav />
             </div>
-            <div className="col-span-7">
+            <div className="col-span-6">
               <Outlet />
             </div>
-            <div className="col-span-2">
+            <div className="col-span-3">
               <RightSideNav />
             </div>
           </div>

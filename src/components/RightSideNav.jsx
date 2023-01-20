@@ -1,31 +1,54 @@
 import React from "react";
-import { CiFacebook, CiTwitter, CiLinkedin } from "react-icons/ci";
+import FindUs from "./FindUs";
+import { Swiper, SwiperSlide } from "swiper/react";
+import "swiper/css/bundle";
+
+// Import Swiper styles
+import "swiper/css";
+import SwiperElement from "./SwiperElement";
+import { Autoplay } from "swiper";
 
 export default function RightSideNav() {
+  const partners = [
+    {
+      id: 1,
+      name: "10 Minutes School",
+      bgLink: "https://thefinancialexpress.com.bd/uploads/1618824591.jpg",
+    },
+    {
+      id: 2,
+      name: "Robi Axiata Limited",
+      bgLink:
+        "https://markedium.com/wp-content/uploads/2021/04/Untitled-design5.png",
+    },
+    {
+      id: 3,
+      name: "Grameen Phone Limited",
+      bgLink:
+        "https://mobilenewsbd.com/wp-content/uploads/2019/03/Grameenphone-3G-to-4G-5GB-Data-Free-.jpg",
+    },
+  ];
   return (
     <div className=" bg-slate-100 h-screen p-4 shadow-md">
-      <h3 className="text-center text-2xl">Find Us On</h3>
-      <button
-        data-mdb-ripple="true"
-        data-mdb-ripple-color="light"
-        className="text-md my-2 flex items-center bg-blue-600 w-full shadow-md  justify-center text-white space-x-2"
+      {/* Find us */}
+      <FindUs />
+      {/* Find us */}
+      {/* Slider */}
+      <Swiper
+        autoplay={true}
+        spaceBetween={1}
+        slidesPerView={1}
+        onSlideChange={() => console.log("slide change")}
+        onSwiper={(swiper) => console.log(swiper)}
+        modules={[Autoplay]}
       >
-        <CiFacebook /> <span>Facebook</span>
-      </button>
-      <button
-        data-mdb-ripple="true"
-        data-mdb-ripple-color="light"
-        className="text-md my-2 flex items-center bg-sky-500 w-full shadow-md  justify-center text-white space-x-2"
-      >
-        <CiTwitter /> <span>Twitter</span>
-      </button>
-      <button
-        data-mdb-ripple="true"
-        data-mdb-ripple-color="light"
-        className="text-md my-2 flex items-center bg-slate-900 w-full shadow-md  justify-center text-white space-x-2"
-      >
-        <CiLinkedin /> <span>Linkedin</span>
-      </button>
+        {partners.map((partner) => (
+          <SwiperSlide key={partner.id}>
+            <SwiperElement partner={partner} />
+          </SwiperSlide>
+        ))}
+      </Swiper>
+      {/* Slider */}
     </div>
   );
 }

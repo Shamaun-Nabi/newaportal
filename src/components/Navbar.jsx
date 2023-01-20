@@ -1,5 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import { FcGoogle } from "react-icons/fc";
 
 function Navbar() {
   return (
@@ -46,9 +47,10 @@ function Navbar() {
               data-mdb-ripple="true"
               data-mdb-ripple-color="light"
               type="button"
-              className="inline-block px-6 py-2.5 bg-slate-600 text-white font-medium text-xs leading-tight uppercase rounded  hover:bg-slate-700 hover:shadow-md focus:bg-slate-700 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-slate-800 active:shadow-lg transition duration-150 ease-in-out"
+              className=" flex items-center justify-center gap-x-2 px-6 py-2.5 bg-slate-900 text-white font-medium text-md leading-tight uppercase rounded  hover:bg-slate-700 hover:shadow-md focus:bg-slate-700 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-slate-800 active:shadow-lg transition duration-150 ease-in-out"
             >
-              Login
+              <FcGoogle />
+              <span>Login</span>
             </button>
           </div>
           {/* <div className="flex items-center relative">
