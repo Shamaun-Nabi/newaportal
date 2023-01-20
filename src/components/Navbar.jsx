@@ -1,12 +1,13 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import { FcGoogle } from "react-icons/fc";
+import LeftSideNav from "./LeftSideNav";
 
 function Navbar() {
   return (
     <div className="">
       <nav className="relative w-full flex flex-wrap items-center justify-between py-3 bg-white text-gray-200 shadow-sm navbar navbar-expand-lg navbar-light">
-        <div className="container-fluid w-full flex flex-wrap items-center justify-between px-6">
+        <div className="container-fluid  w-full flex flex-wrap items-center justify-between px-6">
           <button
             className="navbar-toggler text-gray-900 border-0 hover:shadow-none hover:no-underline py-2 px-2.5 bg-transparent focus:outline-none focus:ring-0 focus:shadow-none focus:no-underline"
             type="button"
@@ -39,10 +40,15 @@ function Navbar() {
             <Link to={"/"} className="text-xl text-black pr-2 font-semibold">
               NewsPortal BD
             </Link>
+            <div className="block md:hidden">
+            <LeftSideNav />
           </div>
+          </div>
+
+          
           {/* Collapsible wrapper */}
           {/* Right elements */}
-          <div>
+          <div className="w-full md:w-auto flex-none md:flex md:justify-center my-4 md:my-0">
             <button
               data-mdb-ripple="true"
               data-mdb-ripple-color="light"

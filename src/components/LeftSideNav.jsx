@@ -15,7 +15,7 @@ function LeftSideNav() {
 
   return (
     <>
-      <div className="h-screen w-full bg-slate-100 shadow-md">
+      <div className=" h-auto md:h-screen w-full bg-slate-100 shadow-md">
         <h3 className="text-center p-5 text-xl font-semibold">Category</h3>
         <div className="flex justify-center">
           <ul>

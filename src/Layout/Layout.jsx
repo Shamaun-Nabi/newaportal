@@ -12,13 +12,13 @@ function Layout() {
         <Navbar />
         <div className=" ">
           <div className="grid grid-cols-12">
-            <div className="col-span-3">
+            <div className="hidden md:block col-span-3 md:order-1">
               <LeftSideNav />
             </div>
-            <div className="col-span-6">
+            <div className=" col-span-12 md:col-span-6 md:order-2">
               <Outlet />
             </div>
-            <div className="col-span-3">
+            <div className="col-span-12 md:col-span-3 md:order-3">
               <RightSideNav />
             </div>
           </div>
