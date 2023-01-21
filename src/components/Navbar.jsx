@@ -1,9 +1,11 @@
-import React from "react";
+import React, { useContext } from "react";
 import { Link } from "react-router-dom";
 import { FcGoogle } from "react-icons/fc";
 import LeftSideNav from "./LeftSideNav";
+import { AuthContext } from "../contexts/AuthProviderContext";
 
 function Navbar() {
+  const { signInGoogle } = useContext(AuthContext);
   return (
     <div className="">
       <nav className="relative w-full flex flex-wrap items-center justify-between py-3 bg-white text-gray-200 shadow-sm navbar navbar-expand-lg navbar-light">
@@ -41,15 +43,15 @@ function Navbar() {
               NewsPortal BD
             </Link>
             <div className="block md:hidden">
-            <LeftSideNav />
-          </div>
+              <LeftSideNav />
+            </div>
           </div>
 
-          
           {/* Collapsible wrapper */}
           {/* Right elements */}
           <div className="w-full md:w-auto flex-none md:flex md:justify-center my-4 md:my-0">
             <button
+              onClick={signInGoogle}
               data-mdb-ripple="true"
               data-mdb-ripple-color="light"
               type="button"

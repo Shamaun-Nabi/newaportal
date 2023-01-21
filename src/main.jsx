@@ -5,11 +5,14 @@ import "./index.css";
 import "tw-elements";
 import { RouterProvider } from "react-router-dom";
 import { router } from "./Routes/Routes";
+import AuthProviderContext from "./contexts/AuthProviderContext";
 
 ReactDOM.createRoot(document.getElementById("root")).render(
   <React.StrictMode>
-    <RouterProvider router={router}>
-      <App />
-    </RouterProvider>
+    <AuthProviderContext>
+      <RouterProvider router={router}>
+        <App />
+      </RouterProvider>
+    </AuthProviderContext>
   </React.StrictMode>
 );

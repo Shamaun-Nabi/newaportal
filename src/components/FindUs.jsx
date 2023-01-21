@@ -5,7 +5,7 @@ function FindUs() {
   return (
     <>
       <div>
-        <h3 className="text-center text-2xl">Find Us On</h3>
+        <h3 className="text-center text-slate-900 text-2xl">Find Us On</h3>
         <button
           data-mdb-ripple="true"
           data-mdb-ripple-color="light"

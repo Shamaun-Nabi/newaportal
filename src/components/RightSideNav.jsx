@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useContext } from "react";
 import FindUs from "./FindUs";
 import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css/bundle";
@@ -7,8 +7,10 @@ import "swiper/css/bundle";
 import "swiper/css";
 import SwiperElement from "./SwiperElement";
 import { Autoplay } from "swiper";
+import { AuthContext } from "../contexts/AuthProviderContext";
 
 export default function RightSideNav() {
+  
   const partners = [
     {
       id: 1,
@@ -29,7 +31,7 @@ export default function RightSideNav() {
     },
   ];
   return (
-    <div className=" bg-slate-100 h-screen p-4 shadow-md">
+    <div className="  h-screen p-4 ">
       {/* Find us */}
       <FindUs />
       {/* Find us */}
@@ -38,8 +40,8 @@ export default function RightSideNav() {
         autoplay={true}
         spaceBetween={1}
         slidesPerView={1}
-        onSlideChange={() => console.log("slide change")}
-        onSwiper={(swiper) => console.log(swiper)}
+        // onSlideChange={() => console.log("slide change")}
+        // onSwiper={(swiper) => console.log(swiper)}
         modules={[Autoplay]}
       >
         {partners.map((partner) => (

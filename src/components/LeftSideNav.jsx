@@ -11,11 +11,11 @@ function LeftSideNav() {
       setCategory(response.data);
     });
   }, []);
-  console.log(category);
+  // console.log(category);
 
   return (
     <>
-      <div className=" h-auto md:h-screen w-full bg-slate-100 shadow-md">
+      <div className=" h-screen">
         <h3 className="text-center p-5 text-xl font-semibold">Category</h3>
         <div className="flex justify-center">
           <ul>
