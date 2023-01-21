@@ -3,9 +3,13 @@ import { Link } from "react-router-dom";
 import { FcGoogle } from "react-icons/fc";
 import LeftSideNav from "./LeftSideNav";
 import { AuthContext } from "../contexts/AuthProviderContext";
+import { toast } from "react-hot-toast";
 
 function Navbar() {
-  const { signInGoogle } = useContext(AuthContext);
+  const { signInGoogle, userLogin, logout } = useContext(AuthContext);
+  // const { displayName } = userLogin;
+  // console.log(userLogin);
+
   return (
     <div className="">
       <nav className="relative w-full flex flex-wrap items-center justify-between py-3 bg-white text-gray-200 shadow-sm navbar navbar-expand-lg navbar-light">
@@ -49,51 +53,58 @@ function Navbar() {
 
           {/* Collapsible wrapper */}
           {/* Right elements */}
-          <div className="w-full md:w-auto flex-none md:flex md:justify-center my-4 md:my-0">
-            <button
-              onClick={signInGoogle}
-              data-mdb-ripple="true"
-              data-mdb-ripple-color="light"
-              type="button"
-              className=" flex items-center justify-center gap-x-2 px-6 py-2.5 bg-slate-900 text-white font-medium text-md leading-tight uppercase rounded  hover:bg-slate-700 hover:shadow-md focus:bg-slate-700 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-slate-800 active:shadow-lg transition duration-150 ease-in-out"
-            >
-              <FcGoogle />
-              <span>Login</span>
-            </button>
-          </div>
-          {/* <div className="flex items-center relative">
-            <div className="dropdown relative">
-              <a
-                className="dropdown-toggle flex items-center hidden-arrow"
-                href="#"
-                id="dropdownMenuButton2"
-                role="button"
-                data-bs-toggle="dropdown"
-                aria-expanded="false"
-              >
-                <img
-                  src="https://mdbootstrap.com/img/new/avatars/2.jpg"
-                  className="rounded-full"
-                  style={{ height: 35, width: 35 }}
-                  alt=""
-                  loading="lazy"
-                />
-              </a>
-              <ul
-                className="dropdown-menu min-w-max absolute hidden bg-white text-base z-50 float-left py-2 list-none text-left rounded-lg shadow-lg mt-1 m-0 bg-clip-padding border-none left-auto right-0"
-                aria-labelledby="dropdownMenuButton2"
-              >
-                <li>
-                  <a
-                    className="dropdown-item text-sm py-2 px-8 font-normal block w-full whitespace-nowrap bg-transparent text-gray-700 hover:bg-gray-100"
-                    href="#"
-                  >
-                    Logout
-                  </a>
-                </li>
-              </ul>
+
+          {userLogin ? (
+            <div className="flex items-center relative">
+              <div className="dropdown relative">
+                <a
+                  className="dropdown-toggle flex items-center hidden-arrow"
+                  href="#"
+                  id="dropdownMenuButton2"
+                  role="button"
+                  data-bs-toggle="dropdown"
+                  aria-expanded="false"
+                >
+                  <img
+                    src={userLogin?.photoURL}
+                    className="rounded-full"
+                    style={{ height: 35, width: 35 }}
+                    alt=""
+                    loading="lazy"
+                  />
+                </a>
+                <ul
+                  className="dropdown-menu min-w-max absolute hidden bg-white text-base z-50 float-left py-2 list-none text-left rounded-lg shadow-lg mt-1 m-0 bg-clip-padding border-none left-auto right-0"
+                  aria-labelledby="dropdownMenuButton2"
+                >
+                  {userLogin && (
+                    <li className="dropdown-item text-sm py-2 px-8 font-normal block w-full whitespace-nowrap bg-transparent text-gray-700 hover:bg-gray-100">
+                      {userLogin?.displayName}
+                    </li>
+                  )}
+                  <li onClick={logout}>
+                    <a className="dropdown-item text-sm py-2 px-8 font-normal block w-full whitespace-nowrap bg-transparent cursor-pointer text-gray-700 hover:bg-gray-100">
+                      Logout
+                    </a>
+                  </li>
+                </ul>
+              </div>
             </div>
-          </div> */}
+          ) : (
+            <div className="w-full md:w-auto flex-none md:flex md:justify-center my-4 md:my-0">
+              <button
+                onClick={signInGoogle}
+                data-mdb-ripple="true"
+                data-mdb-ripple-color="light"
+                type="button"
+                className=" flex items-center justify-center gap-x-2 px-6 py-2.5 bg-slate-900 text-white font-medium text-md leading-tight uppercase rounded  hover:bg-slate-700 hover:shadow-md focus:bg-slate-700 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-slate-800 active:shadow-lg transition duration-150 ease-in-out"
+              >
+                <FcGoogle />
+                <span>Login</span>
+              </button>
+            </div>
+          )}
+
           {/* Right elements */}
         </div>
       </nav>
